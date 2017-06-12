@@ -7,7 +7,7 @@ var config = {};
 //                          GENERAL SETTINGS
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-config.debug = false; // for additional logging / debugging
+config.debug = true; // for additional logging / debugging
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //                         WATCHING A MARKET
@@ -288,6 +288,13 @@ config.ircbot = {
   muteSoft: true,
   channel: '#your-channel',
   server: 'irc.freenode.net',
+  botName: 'gekkobot'
+}
+
+config.telegrambot = {
+  enabled: false,
+  emitUpdates: false,
+  token: 'YOUR_TELEGRAM_BOT_TOKEN',
   botName: 'gekkobot'
 }
 

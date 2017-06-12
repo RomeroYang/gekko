@@ -53,6 +53,13 @@ var plugins = [
     }]
   },
   {
+    name: 'Bearychat bot',
+    description: 'Bearychat lets you receive messages of Gekko trader.',
+    slug: 'bearychat',
+    async: false,
+    modes: ['realtime']
+  },
+  {
     name: 'Telegram bot',
     description: 'Telegram module lets you communicate with Gekko on Telegram.',
     slug: 'telegrambot',
