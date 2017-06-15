@@ -16,14 +16,18 @@ config.debug = true; // for additional logging / debugging
 config.watch = {
 
   // see https://github.com/askmike/gekko#supported-exchanges
-  exchange: 'btce',
-  currency: 'USD',
+  // exchange: 'btce',
+  // currency: 'USD',
+  // asset: 'BTC',
+
+  exchange: 'okcoin',
+  currency: 'CNY',
   asset: 'BTC',
 
   // You can set your own tickrate (refresh rate).
   // If you don't set it, the defaults are 2 sec for
   // okcoin and 20 sec for all other exchanges.
-  tickrate: 10
+  // tickrate: 10
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -212,8 +216,10 @@ config.paperTrader = {
 // watched by `config.watch`.
 config.trader = {
   enabled: true,
-  key: 'UOO18ZLW-9K48SCZR-PKSBEVKP-E0XWBU9C-W5MGG7GF',
-  secret: 'd319ab4bd05fca148a8566e3368df5ecdbe394074a537740484c35d56f1fceac',
+  // key: 'UOO18ZLW-9K48SCZR-PKSBEVKP-E0XWBU9C-W5MGG7GF', //btce key
+  // secret: 'd319ab4bd05fca148a8566e3368df5ecdbe394074a537740484c35d56f1fceac', //btce sec
+  key: 'b5cfe460-fa68-40f7-87d1-f9a3b3c9dcf0', //okcoin key
+  secret: '06A188D08A6343FDF8A601252430DEDC', //okcoin sec
   username: '' // your username, only required for specific exchanges.
 }
 
