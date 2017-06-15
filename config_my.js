@@ -32,7 +32,7 @@ config.watch = {
 
 config.tradingAdvisor = {
   enabled: true,
-  method: 'RSI',
+  method: 'custom',
   candleSize: 1,
   historySize: 15,
   adapter: 'sqlite',
