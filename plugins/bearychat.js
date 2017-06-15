@@ -20,8 +20,8 @@ Actor.prototype.processCandle = function(candle, done) {
   this.price = candle.close;
   this.priceTime = candle.start;
 
-  if(bearychat.enabled)
-  this.emitPrice();
+  // if(bearychat.enabled)
+  // this.emitPrice();
 
   done();
 };
