@@ -220,7 +220,7 @@ config.trader = {
   // secret: 'd319ab4bd05fca148a8566e3368df5ecdbe394074a537740484c35d56f1fceac', //btce sec
   key: 'b5cfe460-fa68-40f7-87d1-f9a3b3c9dcf0', //okcoin key
   secret: '06A188D08A6343FDF8A601252430DEDC', //okcoin sec
-  username: '' // your username, only required for specific exchanges.
+  username: '13022116619' // your username, only required for specific exchanges.
 }
 
 config.adviceLogger = {
