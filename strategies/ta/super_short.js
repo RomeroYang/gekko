@@ -3,6 +3,9 @@ var his = []
 const wnd = 10
 let signal_buy = 0
 let signal_sell = 0
+let position = ''
+let holding = ''
+let holding_price = 0
 
 ss.update = candle => {
     const {high, low, close, macd, rsi} = candle
@@ -23,34 +26,48 @@ ss.update = candle => {
 
     // console.log(`ma:${ma} std:${std} boll_u:${boll.up} boll_d:${boll.down} boll_std:${boll.std_ratio}`)
     if (boll.ratio > boll.std_ratio) {
+    // if (boll.ratio > boll.std_ratio && rsi > 80) {
         console.log(`price in high: diff-ratio-${(boll.ratio).toFixed(4)}`)
-        item.boll_ratio_h = boll.ratio - boll.std_ratio
+        position = 'high'
     } else if (boll.ratio < (0-boll.std_ratio)) {
+    // } else if (boll.ratio < (0-boll.std_ratio) && rsi < 30) {
         console.log(`price in low: diff-ratio-${(boll.ratio).toFixed(4)}`)
-        item.boll_ratio_l = boll.ratio + boll.std_ratio
+        position = 'low'
     } else {
-        if (boll.std_ratio > 0.003) {
-            if (his[his.length-2].boll_ratio_h && rsi > 75) {
+        if (Math.abs(boll.ratio) > 0.002) {
+            if (position === 'high' && rsi > 80) {
+            // if (position === 'high') {
                 console.log(`find short point: diff-ratio-${(boll.ratio).toFixed(4)}`)
                 signal_sell ++
                 signal_buy = 0
-                if (signal_sell > 2) {
+                if (signal_sell > 1) {
                     signal_sell = 0
-                    return 'short'
+                    holding = 'short'
+                    return holding
                 }
             }
-            if (his[his.length-2].boll_ratio_l && rsi < 30) {
+            if (position === 'low' && rsi < 30) {
+            // if (position === 'low') {
                 console.log(`find long point: diff-ratio-${(boll.ratio).toFixed(4)}`)
                 signal_buy ++
                 signal_sell = 0
                 if (signal_buy > 0) {
                     signal_buy = 0
-                    return 'long'
+                    holding = 'long'
+                    holding_price = close
+                    return holding
                 }
             }
         }
     }
     // console.log(`boll_ratio:${boll.ratio}`)
+
+    // risk manage
+    // if (holding === 'long' && (close/holding_price)-1<-0.01) {
+    //     // price dicreased too much
+    //     holding = 'short'
+    //     return holding
+    // }
 
     // const h30 = his.reduce((a, b) => {
     //     return a>b.high?a:b.high
