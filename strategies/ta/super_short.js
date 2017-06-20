@@ -29,12 +29,12 @@ ss.update = candle => {
         console.log(`price in low: diff-ratio-${(boll.ratio).toFixed(4)}`)
         item.boll_ratio_l = boll.ratio + boll.std_ratio
     } else {
-        if (boll.std_ratio > 0.0035) {
+        if (boll.std_ratio > 0.003) {
             if (his[his.length-2].boll_ratio_h && rsi > 75) {
                 console.log(`find short point: diff-ratio-${(boll.ratio).toFixed(4)}`)
                 signal_sell ++
                 signal_buy = 0
-                if (signal_sell > 1) {
+                if (signal_sell > 2) {
                     signal_sell = 0
                     return 'short'
                 }
